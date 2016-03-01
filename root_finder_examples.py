@@ -5,7 +5,7 @@ File: root_finder_examples.py
 Copyright (c) 2016 Austin Ayers
 License: MIT
 
-Course: PHYS227
+Course: PHYS 227
 Assignment: A.4
 Date: Feb 11, 2016
 Email: ayers111@mail.chapman.edu
@@ -45,5 +45,13 @@ def Bisection(f, a, b, eps=1.0E-5):
             fa = fm
         array.append([i,a,b])
     return array
-def Secant():
-    
+def Secant(f, x_0, x_1):
+    array = []
+    x_n_1 = x_1
+    x_n_2 = x_0
+    for i in range(n):
+        x_n = x_n_1 - (f(x_n_1) * (x_n_1 - x_n_2) / (f(x_n_1) - f(x_n_2)))
+        x_n_2 = x_n_1
+        x_n_1 = x_n
+        array.append(x_n)
+    return array
