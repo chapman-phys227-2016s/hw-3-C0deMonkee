@@ -27,6 +27,18 @@ def integral(g, a, x, func, N=20):
         f[n] = f[n-1] + 0.5*(x[n] - x[n-1])*(g_[n-1] + g_[n])
     return x, f
 
+def diff(f, a, b, n):
+    x = np.linspace(a, b, n+1)
+    y = np.zeros(len(x))
+    z = np.zeros(len(x))
+    h = (b-a)/float(n)
+    for i in xrange(len(x)):
+        y[i] = f(x[i])
+    for i in xrange(len(x)-1):
+        z[i] = (y[i+1] - y[i])/h
+    z[n] = (y[n] - y[n-1])/h
+    return y, z
+
 def integral_function(f, dfdx):
     return np.sqrt(1 + dfdx**2)
 
