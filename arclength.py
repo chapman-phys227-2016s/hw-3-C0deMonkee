@@ -14,6 +14,7 @@ Description: Calculates the arc length of a curve
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 def integral(g, a, x, func, N=20):
     index_set = range(N+1)
@@ -25,28 +26,33 @@ def integral(g, a, x, func, N=20):
     for n in index_set[1:]:
         g_[n] = g(x[n])
         f[n] = f[n-1] + 0.5*(x[n] - x[n-1])*(g_[n-1] + g_[n])
-    return x, f
+    return f[-1]
 
-def diff(f, a, b, n):
-    x = np.linspace(a, b, n+1)
-    y = np.zeros(len(x))
-    z = np.zeros(len(x))
-    h = (b-a)/float(n)
-    for i in xrange(len(x)):
-        y[i] = f(x[i])
-    for i in xrange(len(x)-1):
-        z[i] = (y[i+1] - y[i])/h
-    z[n] = (y[n] - y[n-1])/h
-    return y, z
+def diff(f, h=1e-6):
+    return lambda input: (f(input+h) - f(input-h)/(2*h)) 
+    #assumes most functions will be relatively smooth
 
 def integral_function(f, dfdx):
     return np.sqrt(1 + dfdx**2)
 
+def linear_func(x):
+    return 2*x + 1
+def part_3_func(x):
+    return (1/(np.sqrt(2 * np.pi)))*np.exp(-4*(x ** 2))
+
 def arclength(f, a, b, n):
     x_lin = np.linspace(a,b,n+1)
+    y_lin = f(x_lin)
     s = []
-    for(elem_x in x_lin):
+    for elem_x in x_lin:
         ans = integral(f, a, elem_x, integral_function)
         s.append(ans)
-
-def test_arclength():
+    return s, y_lin
+def test_integral():
+    ans = integral(linear_func, 0, 5, integral_function)
+    assert(ans - 30.0 < 1e-2)
+def part_3():
+    ans = arclength(part_3_func, -2, 2, 1000)
+    y_array = ans[1]
+    s_array = ans[0]
+    plt.plot(y_array, s_array)

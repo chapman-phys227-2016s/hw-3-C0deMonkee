@@ -19,7 +19,7 @@ Finally, to cleanly present your work, create a Jupyter notebook ```hw3.ipynb```
 
 ## Assessment
 
-Straight forward so far
+Straight forward, except it was hard to tell what to give the secand method for x_0 and x_1
 
 ## Honor Pledge
 

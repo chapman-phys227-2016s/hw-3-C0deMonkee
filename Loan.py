@@ -19,8 +19,7 @@ def equations(L, n, p):
     """
     x_prev = L
     for i in range(n):
-        y = ( p / 1200 * x_prev ) + ( L / float(n) )
-        x_temp = x_prev + ( p / 1200 * x_prev ) - y
-        print y
-        print x_temp
+        y = ( p / 1200.0 * x_prev ) + ( L / float(n) )
+        x_temp = x_prev + ( p / 1200.0 * x_prev ) - y
+        print "Loan Payment: " + str(y)
         x_prev = x_temp
