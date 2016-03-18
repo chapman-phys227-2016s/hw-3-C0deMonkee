@@ -27,7 +27,7 @@ def sin_Taylor(x, n):
     return sum, np.abs(a_prev)
 def test_Taylor():
     ans = sin_Taylor(0, 2)
-    assert(ans - 0 < 1e-5)
+    assert(ans[0] - 0 < 1e-5)
 def output():
     x = np.linspace(0,1,10)
     print "x | n | s_n"
