@@ -2,7 +2,7 @@
 
 **Author:** Austin Ayers
 
-[![Build Status](https://travis-ci.org/chapman-phys227-2016s/hw-3-C0demonkee.svg?branch=master)](https://travis-ci.org/chapman-phys227-2016s/hw-3-C0demonkee)
+[![Build Status](https://travis-ci.org/chapman-phys227-2016s/hw-3-C0deMonkee.svg?branch=master)](https://travis-ci.org/chapman-phys227-2016s/hw-3-C0deMonkee)
 
 **Due date:** 2016/02/23
 
